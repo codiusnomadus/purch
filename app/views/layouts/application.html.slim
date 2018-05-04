@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title = @page_title
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    - if controller.class.name.split("::").first.downcase == 'reports'
+      = javascript_include_tag('https://www.gstatic.com/charts/loader.js', 'data-turbolinks-track': 'reload')
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = favicon_link_tag
+  body class=((controller_name == 'sessions')? 'devise' : '')
+    p.notice = notice
+    p.alert = alert
+    = yield
