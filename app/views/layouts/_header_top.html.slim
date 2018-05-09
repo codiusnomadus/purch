@@ -1,0 +1,53 @@
+/ Header Top
+
+section#wd-header-top
+  .container
+    .row
+      .col-md-6.col-sm-6.col-md-4.col-lg-4.col-xl-3
+
+        / Social Media List
+
+        .wb-social-media
+          a[href="#" class="fb"]
+            = fa_icon "facebook-official"
+          a[href="#" class="yt"]
+            = fa_icon "youtube-play"
+          a[href="#" class="bh"]
+            = fa_icon "twitter"
+
+      .col-sm-12.col-md-4.col-lg-5.col-xl-6.d-none.d-md-block
+        .offer-text.text-center
+          p.text-uppercase
+            | upto 50% off to all virtual products
+
+      .col-6.col-sm-6.col-md-4.col-lg-3.col-xl-3
+        .language-and-currency-btn
+          = image_tag 'flag-icon', alt: 'flag-icon'
+
+          .btn-group[role="group" aria-label="Button group with nested dropdown"]
+            .btn-group[role="group"]
+              button#btnGroupDrop3[type="button" class="btn btn-secondary wd-btn-country dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+                | English
+
+              .dropdown-menu.wd-btn-country-list[aria-labelledby="btnGroupDrop3"]
+                a.dropdown-item[href="#"]
+                  = image_tag "flag-icon-2", alt: "flag-icon"
+                  | Spanish
+                a.dropdown-item[href="#"]
+                  = image_tag "flag-icon-2", alt: "flag-icon"
+                  | French
+          
+          .btn-group[role="group" aria-label="Button group with nested dropdown"]
+            .btn-group[role="group"]
+              button#btnGroupDrop4[type="button" class="btn btn-secondary wd-btn-language dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+                | Currency
+
+              .dropdown-menu.wd-btn-language-list[aria-labelledby="btnGroupDrop4"]
+                a.dropdown-item[href="#"]
+                  | &#36; Dollar
+                a.dropdown-item[href="#"]
+                  | &#163; Pound
+                a.dropdown-item[href="#"]
+                  | &#8364; Euro
+
+
