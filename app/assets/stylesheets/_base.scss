@@ -1,0 +1,45 @@
+body {
+  font-family: "Roboto", sans-serif;
+  color: #333333;
+  font-size: 14px;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  transition: 0.5s;
+  text-decoration: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  margin: 0;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h5 {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+img {
+  margin: 0 !important;
+  max-width: 100%;
+}

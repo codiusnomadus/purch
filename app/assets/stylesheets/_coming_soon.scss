@@ -1,0 +1,155 @@
+.coming-soon {
+  
+}
+.coming-soon{
+    background-image: url(../img/slider-img/coming-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+}
+.coming-soon .count-down {
+  position: relative;
+  /* left: auto; */
+  top: 0;
+  width: 600px;
+  overflow: hidden;
+  display: block;
+}
+.coming-soon-logo {
+  padding: 60px 0px 130px;
+}
+.coming-soon .count-down .time-count {
+  width: 100%;
+  font-size: 30px;
+  position: relative;
+  background: #fff;
+  color: #333333;
+  padding: 5px 0px;
+  margin-bottom: 3px;
+  line-height: 65px !important;
+  height: 100%;
+  border-radius: 9px;
+  border-bottom: 11px solid #fdb813;
+  font-weight: 300;
+  box-shadow: 2.5px 4.33px 20px 0px rgba(63, 71, 93, 0.1);
+}
+.coming-soon .count-down .cdown {
+  text-transform: uppercase;
+  width: 100px;
+  float: left;
+  margin: 0 4px;
+  text-align: center;
+  height: 100px;
+  position: relative;
+}
+.coming-soon-text h1 {
+  font-size: 80px;
+  font-weight: 400;
+  padding-bottom: 15px;
+}
+.coming-soon-text {
+  padding-bottom: 40px;
+}
+.coming-soon-text h3{font-size: 70px;font-weight: 300}
+.coming-soon  .cdown p {
+  padding-top: 5px;
+  padding-bottom: 0px;
+  font-size: 20px;
+  text-transform: capitalize;
+  color: #666666;
+  margin-top: -5px;
+  position: absolute;
+  left: 32px;
+  top: 51px;
+  left: 50%;
+  transform: translatex(-50%);
+}
+.coming-soon-sub {
+  width: 100%;
+  display: block;
+  height: 103px;
+  padding-top: 55px;
+}
+.coming-soon-sub input {
+    box-shadow: 2.5px 4.33px 20px 0px rgba(63, 71, 93, 0.15);
+  background-color: rgb(255, 255, 255);
+  padding: 10px 0px;
+  width: 310px;
+  border: none;
+  height: 50px;
+  margin-right: 15px;
+  border-radius: 5px 0px 0px 5px;
+    padding-left: 10px;
+}
+.coming-soon-sub button {
+  background: #fdb813;
+  color: #fff;
+  height: 50px;
+  width: 150px;
+  border: none;
+  box-shadow: 2.5px 4.33px 20px 0px rgba(63, 71, 93, 0.15);
+  font-size: 16px;
+  text-transform: uppercase;
+  border-radius: 0px 5px 5px 0px;
+    cursor: pointer;
+}
+.coming-soon .wb-social-media {
+  float: right;
+  margin-top: 175px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    
+  .coming-soon-text h1 {font-size: 50px;}
+  .coming-soon-text h3 {font-size: 50px!important;}
+  .coming-soon .count-down {width: 564px;}
+  .coming-soon-logo {
+    padding: 60px 0px 50px;
+  }
+  .coming-soon .wb-social-media {
+    margin-top: 110px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    
+  .coming-soon-logo {
+    padding: 30px 0px 50px;
+  }
+      .coming-soon-text h3,.coming-soon-text h1 {
+    font-size: 40px;
+  }
+  .coming-soon .count-down {
+    width: 435px;
+    left: 0;
+  }
+}
+
+@media (max-width: 575px) {
+    
+  .coming-soon-logo {
+    padding: 30px 0px 50px;
+  }
+      .coming-soon-text h3,.coming-soon-text h1 {
+    font-size: 40px;
+  }
+  .coming-soon .count-down {
+    width: 300px;
+    left: 0;
+  }
+      .coming-soon .count-down .cdown {
+    width: 65px;
+    height: 99px;
+  }
+  .coming-soon-sub input {
+    width: 285px;
+  }
+      .coming-soon-sub button {
+
+    margin-top: 10px;
+  }
+    
+}
