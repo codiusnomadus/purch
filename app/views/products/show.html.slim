@@ -1,0 +1,16 @@
+h1 = @product.name
+ul.list-unstyled.list-inline
+  - if policy(@product).edit?
+    li = link_to 'Edit product', edit_product_path(@product), class: "btn btn-warning btn-xs"
+
+  - if policy(@product).destroy?
+    li = link_to 'Delete product', @product, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs"
+
+p
+  small = @product.price
+
+- if @product.image.present?
+  .image
+    = image_tag @product.image_url
+
+p = @product.description

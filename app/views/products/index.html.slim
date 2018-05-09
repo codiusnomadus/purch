@@ -1,0 +1,6 @@
+h1 All products
+
+.products
+  - @products.each do |item|
+    h3 = link_to item.name, item
+
