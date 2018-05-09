@@ -6,7 +6,6 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'spec_helper'
 require 'capybara/rails'
-require 'support/factory_girl'
 require 'capybara/email/rspec'
 require "selenium/webdriver"
 
@@ -53,6 +52,9 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
+  # Factory bot
+  config.include FactoryBot::Syntax::Methods
+
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.
@@ -75,8 +77,8 @@ RSpec.configure do |config|
 
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::IntegrationHelpers, type: :feature
-  config.include Request::AuthHelpers, type: :request
+  # config.include Request::AuthHelpers, type: :request
 
   # Wait for Ajax - Capybara
-  config.include WaitForAjax, type: :feature
+  # config.include WaitForAjax, type: :feature
 end

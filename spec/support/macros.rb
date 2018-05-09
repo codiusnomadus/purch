@@ -1,4 +1,4 @@
-def sign_user_in(user, role="interviewer")
+def sign_user_in(user, role="admin")
   user.add_role role
   sign_in user
 end
