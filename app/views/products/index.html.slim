@@ -1,6 +1,52 @@
-h1 All products
+.featured-product-index-page
+  | FEATURED PRODUCT
 
-.products
-  - @products.each do |item|
-    h3 = link_to item.name, item
+.container.main
+  .col-md-3.col-sm-12.col-xs-12
 
+    .categories-sidebar.
+      h4.section-heading Categories
+      .panel.panel-default
+        .panel-body
+          ul.category-list.list-items
+            li = link_to 'Laptops'
+            li = link_to 'Tablets'
+            li = link_to 'Smartphones'
+            li = link_to 'Monitors'
+            li = link_to 'Headphones'
+
+    .reviews-sidebar
+      h4.section-heading Top reviews
+      .panel.panel-default
+        .panel-body
+          .col-md-3
+            = image_tag "blog-img-2"
+          .col-md-9
+            h5 Sony XB950B1 Extra Bass Wireless
+      .panel.panel-default
+        .panel-body
+          .col-md-3
+            = image_tag "blog-img-2"
+          .col-md-9
+            h5 Sony XB950B1 Extra Bass Wireless
+
+
+
+  .products-main.col-md-9.col-sm-12.col-xs-12
+    .row
+      - @products.each do |item|
+        .col-md-4.col-sm-12.col-xs-12
+          .panel.panel-default
+            .panel-heading.image-box
+              = link_to item do
+                = image_tag "blog-img-2"
+            .panel-body
+              p
+                | Price starts from $
+                = item.price
+              p Star rating
+              p.text-center
+                = link_to "#", class: "btn btn-compare" do
+                  = fa_icon "exchange"
+                  '
+                  | Add to compare

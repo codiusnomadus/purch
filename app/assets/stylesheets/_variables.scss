@@ -1,9 +1,16 @@
-$theme-color         : #fc854b;
+$theme-color          : #fc854b;
 
-$text-color          : #787878;
-$text-color-dark     : #444444;
-$bg-color-light      : #FFFFFF;
-$bg-color-dark       : #f1f1f1;
+$text-color           : #787878;
+$text-color-dark      : #444444;
+// $light             : #f5f5f5;
+$light_bg             : #e9ebec;
+$light                : #f8f7f4;
+$white                : #fff;
+$dark                 : #333;
+$dark_gray            : #3c4750;
+
+$green_core: #07c748;
+// $green_core: #3BBCB0;
 
 /**
  * ---------------------------------------------------------------------------
@@ -11,3 +18,9 @@ $bg-color-dark       : #f1f1f1;
  * ---------------------------------------------------------------------------
  */
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,300i,400,500,500i,700,900");
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700');
+
+
+$core_font: 'Roboto Condensed', sans-serif;
