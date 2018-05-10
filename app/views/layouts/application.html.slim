@@ -13,16 +13,31 @@ html
 
 
   body class=((controller_name == 'sessions')? 'devise' : '')
-	.container
-		= render "layouts/menu"
-		/ = render "layouts/header_top"
-		/ = render "layouts/header_mobile_menu"
-		/ = render "layouts/header_main_menu"
-		- unless notice.nil?
-			p.alert.alert-info = notice
-
-		- unless alert.nil?
-			p.alert.alert-warning = alert
+  	/![if lt IE 8]><p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]
 
 
-		= yield
+  	.preloader
+
+  	header
+  		= render "layouts/menu"
+
+  	.container
+			- unless notice.nil?
+				p.alert.alert-info = notice
+			- unless alert.nil?
+				p.alert.alert-warning = alert
+
+    .main
+      = yield
+
+    section#newsletter-home
+      = render 'layouts/newsletter'
+
+  	footer
+  		.footer-up
+  			.container
+  				= render 'layouts/footer_up'
+  		.footer-down
+  			.container
+  				= render 'layouts/footer_down'
+

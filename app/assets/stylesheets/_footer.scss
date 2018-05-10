@@ -1,8 +1,6 @@
 @import 'variables';
 
 .footer-up {
-  background: $white!important;
-  // color: $white;
   padding-top: 1em;
   padding-bottom: 1em;
 
@@ -29,12 +27,11 @@ ul.social-footer-menu {
       width: 100%;
       border-radius: 5px;
       color: $white;
+      font-size: 1.2em;
 
       &.social-fb {
         background: #253e73!important;
         color: white;
-
-
       }
 
       &.social-tw {

@@ -4,7 +4,6 @@ body {
   font-family: "Roboto", sans-serif;
   color: #333333;
   font-size: 14px;
-  background-color: $light!important;
 }
 
 p {
@@ -94,4 +93,6 @@ img {
 
 .main {
   min-height: 630px;
+  background-color: $light!important;
+
 }
