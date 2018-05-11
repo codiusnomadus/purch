@@ -12,26 +12,72 @@
           font-size: 1.3em!important;
           // text-shadow: 0.5px 0px 0px #f5f5f5;
           text-transform: uppercase;
+          color: $dark_gray;
 
-          &:hover {
+          &:hover, &.active {
             background: none;
             color: $green_core;
           }
+
+
         }
       }
     }
   }
 
-  a.active {
-    color: $green_core;
-    font-family: $core_font;
-    border-radius: 5px;
+
+}
+
+
+ul.social-header-menu {
+  margin-top: 0.85em;
+  li {
+    a.social {
+      color: $white;
+      font-size: 1em;
+
+      &.social-fb, &.social-tw {
+        &:hover {
+          transition: all 0.25s ease;
+
+          i {
+            background: #333 !important;
+          }
+        }
+      }
+
+      i {
+        border-radius: 5px;
+
+        &:hover {
+          background: $dark;
+        }
+
+        &.span-fb {
+          padding: 1em 1.2em;
+          background: #325399!important;
+        }
+
+        &.span-tw {
+          padding: 1em;
+          background: #0094ef!important;
+        }
+      }
+
+    }
   }
 }
+
+
 
 .btn-default#btn-search {
   border-left: 0;
   // background: none;
+
+  &:focus {
+    border-left: 0;
+  }
+
   &:hover {
     background: $green_core!important;
     color: #fff!important;

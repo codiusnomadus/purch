@@ -1,8 +1,11 @@
-= simple_form_for @product do |f|
-  = f.input :name
-  = f.input :description, as: :text
-  = f.input :price
-  = f.input :image, as: :hidden, input_html: { value: @product.cached_image_data }
-  = f.input :image, as: :file
+.col-md-6.col-md-offset-3
+  .panel.panel-default
+    .panel-body
+      = simple_form_for @product do |f|
+        = f.input :name
+        = f.input :description, as: :text
+        = f.input :price
+        = f.input :image, as: :hidden, input_html: { value: @product.cached_image_data }
+        = f.input :image, as: :file
 
-  = f.button :submit, class: "btn btn-success"
+        = f.button :submit, class: "btn btn-success"

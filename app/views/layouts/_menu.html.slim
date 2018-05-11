@@ -11,14 +11,31 @@ nav.navbar.navbar-custom
     .collapse.navbar-collapse[id="bs-example-navbar-collapse"]
       ul.nav.navbar-nav
         li = active_link_to 'Products', products_path
+        li = active_link_to 'Reviews', "www.example.com"
+        li = active_link_to 'Guides', "www.example.com"
+        li = active_link_to 'Deals', "www.example.com"
+        li = active_link_to 'Blog', "www.example.com"
 
       ul.nav.navbar-nav.navbar-right
+        li
+          ul.social-header-menu.list-unstyled.list-inline
+            li
+              = link_to "http://example.com", class: 'social social-fb' do
+                = fa_icon 'facebook', class: 'span-fb'
+
+            li
+              = link_to "http://example.com", class: 'social social-tw' do
+                = fa_icon 'twitter', class: 'span-tw'
+
+
         form.navbar-form.navbar-left[role="Search"]
           .input-group
             input[type="text" class="form-control input-lg" placeholder="Search"]
             span.input-group-btn
               button.btn.btn-lg.btn-default#btn-search[type="button"]
                 = fa_icon "search"
+
+
 
         - unless current_user && user_signed_in?
           li = active_link_to 'Sign up', new_user_registration_path

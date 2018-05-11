@@ -17,7 +17,7 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $core_font;
+  font-family: $core_font!important;
   font-weight: 900;
   margin: 0;
 }
@@ -95,4 +95,31 @@ img {
   min-height: 630px;
   background-color: $light!important;
 
+}
+
+.admin-links {
+  margin-top :1em;
+}
+
+
+.alert {
+  margin-top: 1em;
+}
+
+.product-single {
+  margin-top: 3.3em;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+
+.devise-links {
+  margin-top: 0.5em;
+}
+
+
+label.form-check-label.boolean {
+  margin-left: 0.5em;
 }

@@ -1,16 +1,39 @@
-h1 = @product.name
-ul.list-unstyled.list-inline
-  - if policy(@product).edit?
-    li = link_to 'Edit product', edit_product_path(@product), class: "btn btn-warning btn-xs"
+.container.main
+  .head-section
+    - if current_user.has_role?(:admin) || current_user.has_role?(:editor)
+      ul.list-unstyled.list-inline.pull-right.admin-links
+        - if policy(@product).edit?
+          li = link_to edit_product_path(@product), class: "btn btn-default btn-xs" do
+            = fa_icon "pencil"
 
-  - if policy(@product).destroy?
-    li = link_to 'Delete product', @product, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs"
+        - if policy(@product).destroy?
+          li = link_to @product, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs" do
+            = fa_icon "trash"
 
-p
-  small = @product.price
+  .product-single
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-md-6.col-sm-12
+            - if @product.image.present?
+              .image
+                = image_tag @product.image_url
+          .col-md-6.col-sm-12
+            h1 = @product.name
+            p
+              small
+              | US$
+              = @product.price
+              |.00
+            p
+              = fa_icon "star"
+              = fa_icon "star"
+              = fa_icon "star"
+              = fa_icon "star"
+              = fa_icon "star"
 
-- if @product.image.present?
-  .image
-    = image_tag @product.image_url
 
-p = @product.description
+    .panel.panel-default
+      .panel-body
+        h4 Description
+        p = @product.description
