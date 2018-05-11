@@ -1,43 +1,48 @@
 doctype html
 html
   head
-	title = @page_title
-	= csrf_meta_tags
-	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-	- if controller.class.name.split("::").first.downcase == 'reports'
-	  = javascript_include_tag('https://www.gstatic.com/charts/loader.js', 'data-turbolinks-track': 'reload')
-	= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-	= favicon_link_tag
+  title = @page_title
+  = csrf_meta_tags
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+  - if controller.class.name.split("::").first.downcase == 'reports'
+    = javascript_include_tag('https://www.gstatic.com/charts/loader.js', 'data-turbolinks-track': 'reload')
+  = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  = favicon_link_tag
 
-	/ Add apple touch icon
+  / Add apple touch icon
 
 
   body class=((controller_name == 'sessions')? 'devise' : '')
-  	/![if lt IE 8]><p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]
+    /![if lt IE 8]><p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]
 
 
-  	.preloader
+    .preloader
 
-  	header
-  		= render "layouts/menu"
+    header
+      = render "layouts/menu"
 
-  	.container
-			- unless notice.nil?
-				p.alert.alert-info = notice
-			- unless alert.nil?
-				p.alert.alert-warning = alert
-
-    .main
+    .main.home-page-main
+      .container
+        - unless notice.nil?
+          .alert.alert-info.alert-dismissable
+            button.close[type="button" data-dismiss="alert" aria-label="Close"]
+              span[aria-hidden="true"] &times;
+            = notice
+        - unless alert.nil?
+          .alert.alert-warning.alert-dismissable
+            button.close[type="button" data-dismiss="alert" aria-label="Close"]
+              span[aria-hidden="true"] &times;
+            = alert
       = yield
 
     section#newsletter-home
       = render 'layouts/newsletter'
 
-  	footer
-  		.footer-up
-  			.container
-  				= render 'layouts/footer_up'
-  		.footer-down
-  			.container
-  				= render 'layouts/footer_down'
+    footer
+      .footer-up
+        .container
+          = render 'layouts/footer_up'
+      .footer-down
+        .container
+          = render 'layouts/footer_down'
 
