@@ -26,6 +26,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'pundit'
 gem 'rolify'
+gem "administrate"
+
+
 
 # Images
 gem 'mini_magick'
