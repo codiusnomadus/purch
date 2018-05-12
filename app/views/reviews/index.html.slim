@@ -1,0 +1,50 @@
+.container.main
+  h1 All Reviews
+  .featured-review-index-page
+    .col-md-6.col-sm-12
+      | Image
+    .col-md-6.col-sm-12
+      | Excerpt
+
+  .row
+    .reviews-main.index-page.col-md-9.col-sm-12.col-xs-12
+      - @reviews.each do |item|
+        .col-md-12.col-sm-12.col-xs-12
+          .panel.panel-default
+            / .panel-heading.image-box
+            /   = link_to item do
+            /     - if item.image.present?
+            /       = image_tag item.image_url
+            /     - else
+            /       = image_tag "blog-img-2"
+            .panel-body
+              h3 = link_to item.title, item
+              p Read full review
+              p = link_to "View in Store", "http://example.com"
+
+    .col-md-3.col-sm-12.col-xs-12
+      .categories-sidebar
+        h4.section-heading Categories
+        .panel.panel-default
+          .panel-body
+            ul.category-list.list-items
+              li = link_to 'Laptops'
+              li = link_to 'Tablets'
+              li = link_to 'Smartphones'
+              li = link_to 'Monitors'
+              li = link_to 'Headphones'
+
+      .reviews-sidebar
+        h4.section-heading Top reviews
+        .panel.panel-default
+          .panel-body
+            .col-md-3
+              = image_tag 'blog-img-2'
+            .col-md-9
+              h5 Sony XB950B1 Extra Bass Wireless
+        .panel.panel-default
+          .panel-body
+            .col-md-3
+              = image_tag "blog-img-2"
+            .col-md-9
+              h5 Sony XB950B1 Extra Bass Wireless

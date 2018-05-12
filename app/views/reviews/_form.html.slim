@@ -1,0 +1,11 @@
+.col-md-8.col-md-offset-2
+  .panel.panel-default
+    .panel-body
+      = simple_form_for @review do |f|
+        = f.input :title
+        = f.input :body, as: :text
+        = f.input :verdict, as: :text
+        / = f.input :image, as: :hidden, input_html: { value: @product.cached_image_data }
+        / = f.input :image, as: :file
+
+        = f.button :submit, class: "btn btn-success"

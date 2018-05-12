@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :users
     resources :products
     resources :roles
+    resources :reviews
 
     root to: "users#index"
   end
@@ -11,4 +12,5 @@ Rails.application.routes.draw do
   root to: "pages#index"
 
   resources :products
+  resources :reviews
 end

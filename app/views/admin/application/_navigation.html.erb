@@ -7,8 +7,8 @@ for all resources in the admin dashboard,
 as defined by the routes in the `admin/` namespace
 %>
 
-<% if user_signed_in? && (current_user.has_role?(:admin) || current_user.has_role?(:editor?)) %>
 <nav class="navigation" role="navigation">
+  <%= link_to "Home", root_path, class: "navigation__link navigation__link--Home", target: "_blank" %>
   <% Administrate::Namespace.new(namespace).resources.each do |resource| %>
     <%= link_to(
       display_resource_name(resource),
@@ -17,4 +17,3 @@ as defined by the routes in the `admin/` namespace
     ) %>
   <% end %>
 </nav>
-<% end %>
