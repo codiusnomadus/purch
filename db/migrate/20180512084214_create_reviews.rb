@@ -1,6 +1,6 @@
 class CreateReviews < ActiveRecord::Migration[5.0]
-  def change
-    create_table :reviews do |t|
+  def up
+    create_table 'core.reviews' do |t|
       t.string :title
       t.text :body
       t.text :verdict
@@ -8,5 +8,9 @@ class CreateReviews < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+  end
+
+  def down
+    drop_table 'core.reviews'
   end
 end

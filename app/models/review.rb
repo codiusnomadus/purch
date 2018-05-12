@@ -1,5 +1,7 @@
 class Review < ApplicationRecord
-  belongs_to :user
+  include UploadUploader[:image]
 
+
+  belongs_to :user
   validates :title, :body, :verdict, presence: true
 end

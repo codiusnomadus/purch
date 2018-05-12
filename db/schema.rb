@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20180512105832) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
+    t.index ["user_id"], name: "index_core.reviews_on_user_id", using: :btree
   end
 
   create_table "roles", force: :cascade do |t|
