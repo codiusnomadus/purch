@@ -1,7 +1,10 @@
 class Review < ApplicationRecord
-  include UploadUploader[:image]
+  self.table_name = 'core.reviews'
 
+  belongs_to :user, dependent: :destroy
 
-  belongs_to :user
+  has_many :uploads, as: :uploadable, dependent: :destroy
+  accepts_nested_attributes_for :uploads, allow_destroy: true
+
   validates :title, :body, :verdict, presence: true
 end

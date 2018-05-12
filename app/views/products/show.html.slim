@@ -15,7 +15,8 @@
       .panel-body
         .row
           .col-md-6.col-sm-12
-            = image_tag @product.uploads.where(featured: true).last.upload_url(:original)
+            - if @product.uploads.where(featured: true).any?
+              = image_tag @product.uploads.where(featured: true).last.upload_url(:original)
           .col-md-6.col-sm-12
             h1 = @product.name
             p

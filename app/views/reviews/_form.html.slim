@@ -1,11 +1,20 @@
 .col-md-8.col-md-offset-2
   .panel.panel-default
     .panel-body
-      = simple_form_for @review do |f|
+      = simple_form_for @review, html: { multipart: true } do |f|
         = f.input :title
         = f.input :body, as: :text
         = f.input :verdict, as: :text
-        / = f.input :image, as: :hidden, input_html: { value: @product.cached_image_data }
-        / = f.input :image, as: :file
+        .panel.panel-default
+          .panel-body
+            = f.simple_fields_for :uploads do |builder|
+              - if @review.uploads.any?
+                .row
+                  - @review.uploads.each do |item|
+                      .col-md-2.col-sm-12
+                        = image_tag item.upload_url(:small)
+              - else
+                = image_tag "blog-img-2"
+              = render partial: 'uploads/form', locals: { f: builder, uploadable: @review }
 
         = f.button :submit, class: "btn btn-success"

@@ -8,10 +8,11 @@
         .panel.panel-default
           .panel-body
             = f.simple_fields_for :uploads do |builder|
-              - @product.uploads.each do |item|
-                .row
-                  .col-md-2.col-sm-12
-                    = image_tag item.upload_url(:small)
+              - if @product.uploads.any?
+                - @product.uploads.each do |item|
+                  .row
+                    .col-md-2.col-sm-12
+                      = image_tag item.upload_url(:original)
               = render partial: 'uploads/form', locals: { f: builder, uploadable: @product }
 
         = f.button :submit, class: "btn btn-success"

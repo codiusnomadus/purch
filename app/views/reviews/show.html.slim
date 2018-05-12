@@ -14,10 +14,13 @@
     .col-md-9.col-sm-12
       .panel.panel-default
         .panel-body
-          / - if @review.image.present?
-          /   .image
-          /     = image_tag @review.image_url
+          .featured-image
+            = image_tag @review.uploads.last.upload_url(:large)
           h1 = @review.title
+          p
+            small
+              | Posted on
+              = @review.created_at.strftime('%-d %m, %Y at %l:%M%P')
           p = @review.verdict
           p = @review.body
 
