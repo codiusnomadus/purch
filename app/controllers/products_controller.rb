@@ -11,10 +11,13 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @product.uploads.build unless @product.uploads.any?
     authorize @product
   end
 
   def create
+    # uploads_attributes = params["uploads"].map { |file| {upload: upload} }
+    # @product = Product.new(product_params.merge(uploads_attributes: uploads_attributes))
     @product = Product.new(product_params)
     @product.user = current_user
 
@@ -56,6 +59,6 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.require(:product).permit(:name, :description, :price, :image)
+      params.require(:product).permit(:name, :description, :price,  uploads_attributes: [:id, :upload, :featured] )
     end
 end
