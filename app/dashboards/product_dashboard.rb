@@ -16,8 +16,6 @@ class ProductDashboard < Administrate::BaseDashboard
     description: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    image_data: Field::Text,
-    image: ImageField,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -43,7 +41,6 @@ class ProductDashboard < Administrate::BaseDashboard
     :description,
     :created_at,
     :updated_at,
-    :image
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -55,7 +52,6 @@ class ProductDashboard < Administrate::BaseDashboard
     :name,
     :price,
     :description,
-    :image
   ].freeze
 
   # Overwrite this method to customize how products are displayed
