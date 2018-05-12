@@ -1,4 +1,13 @@
 /*
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+/*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -10,10 +19,17 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+
+ *= require owl.carousel.min
+ *= require owl.theme.default.min
+ *= require animate
+ *= require rateyo
+ *= require lightslider.min
+ *= require jquery-ui.min
+ *= require megamenu
  *= require select2
  *= require select2-bootstrap
+ *= require core_styles
  */
-@import "bootstrap-sprockets";
-@import "bootstrap"
+
+

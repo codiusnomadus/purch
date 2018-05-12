@@ -1,0 +1,29 @@
+.row
+  .col-md-3.col-sm-12
+    .logo-footer
+      = image_tag "logo"
+  .col-md-3.col-sm-12
+    h4 Quick Links
+    ul.list-unstyled
+      li Home
+      li Products
+      li Reviews
+      li Blog
+  .col-md-3.col-sm-12
+    h4 About
+    ul.list-unstyled
+      li What's Purchase Buff?
+      li Privacy
+      li Contact
+  .col-md-3.col-sm-12
+    h4 Social
+    ul.list-unstyled.social-footer-menu
+      li
+        = link_to "http://example.com", class: 'social social-fb' do
+          = fa_icon 'facebook', class: 'span-fb'
+          | &nbsp; Follow us on Facebook
+
+      li
+        = link_to "http://example.com", class: 'social social-tw' do
+          = fa_icon 'twitter', class: 'span-tw'
+          | &nbsp; Follow us on Twitter

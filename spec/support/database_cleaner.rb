@@ -4,7 +4,7 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
-    load "#{Rails.root}/db/seeds_for_tests.rb"
+    # load "#{Rails.root}/db/seeds_for_tests.rb"
   end
 
   config.before(:each) do

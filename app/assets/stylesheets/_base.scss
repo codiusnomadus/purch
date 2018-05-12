@@ -1,0 +1,125 @@
+@import 'variables';
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #333333;
+  font-size: 14px;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  transition: 0.5s;
+  text-decoration: none !important;
+  font-family: $core_font;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $core_font!important;
+  font-weight: 900;
+  margin: 0;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h5 {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+img {
+  margin: 0 !important;
+  max-width: 100%;
+}
+
+.panel-heading.image-box {
+  padding: 0;
+}
+
+
+.btn-success {
+  background: $green_core!important;
+
+  &:hover {
+    background: darken($green_core, 10%);
+  }
+}
+
+.heading-bg {
+  background: $green_core!important;
+}
+
+.list-items {
+  line-height: 1.9em;
+  li {
+    a {
+      color: lighten(#666, 20%);
+      font-size: 1.1em!important;
+
+      &:hover {
+        color: $green_core;
+      }
+    }
+  }
+}
+
+.btn-compare {
+  background: $green_core;
+  color: $white;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-shadow: 0;
+
+  &:hover {
+    background: darken($green_core, 10%)!important;
+    color: $white!important;
+  }
+}
+
+.main {
+  min-height: 630px;
+  background-color: $light!important;
+
+}
+
+.admin-links {
+  margin-top :1em;
+}
+
+
+.alert {
+  margin-top: 1em;
+}
+
+.product-single {
+  margin-top: 3.3em;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+
+.devise-links {
+  margin-top: 0.5em;
+}
+
+
+label.form-check-label.boolean {
+  margin-left: 0.5em;
+}

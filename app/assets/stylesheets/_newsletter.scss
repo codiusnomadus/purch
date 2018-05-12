@@ -1,0 +1,39 @@
+@import 'variables';
+
+#newsletter-home {
+  background: $green_core;
+  padding: 3em;
+}
+
+#newsletter-footer-form {
+
+  input[type="text"] {
+    width: 100%;
+  }
+
+  .btn-default {
+    background: $white;
+  }
+}
+
+.newsletter-text {
+  font-family: $core_font;
+  color: $white;
+
+  h4 {
+    font-size: 3em!important;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 2em;
+  }
+
+}
+
+#btn-subscribe {
+  font-weight: 600;
+  color: lighten($dark_gray, 20%);
+}
+
+

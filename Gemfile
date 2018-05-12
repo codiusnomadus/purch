@@ -26,9 +26,13 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'pundit'
 gem 'rolify'
+gem "administrate"
+
+
 
 # Images
 gem 'mini_magick'
+gem "shrine", "~> 2.0"
 
 # Utilities
 gem 'active_link_to'
@@ -40,6 +44,7 @@ gem 'select2-rails'
 gem 'simple_form'
 gem 'kaminari'
 gem 'slim-rails'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -61,9 +66,10 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'capybara-email'
   gem 'database_cleaner'
-  gem 'factory_girl'
-  gem 'factory_girl_rails'
+  gem 'factory_bot'
+  gem 'factory_bot_rails'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
 end

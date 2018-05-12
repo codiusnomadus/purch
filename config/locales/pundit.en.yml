@@ -1,0 +1,6 @@
+en:
+  pundit:
+    default: 'You are not authorized to perform this action.'
+    product_policy:
+      update?: 'You cannot edit this product!'
+      create?: 'You cannot create product!'
