@@ -10,14 +10,12 @@
           li = link_to @product, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs" do
             = fa_icon "trash"
 
-  .product-single
+  .product-single.show-page
     .panel.panel-default
       .panel-body
         .row
           .col-md-6.col-sm-12
-            - if @product.image.present?
-              .image
-                = image_tag @product.image_url
+            = image_tag @product.uploads.where(featured: true).last.upload_url(:original)
           .col-md-6.col-sm-12
             h1 = @product.name
             p

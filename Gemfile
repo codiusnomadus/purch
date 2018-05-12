@@ -28,11 +28,11 @@ gem 'pundit'
 gem 'rolify'
 gem "administrate"
 
-
-
 # Images
-gem 'mini_magick'
+gem "image_processing"
+gem "mini_magick"
 gem "shrine", "~> 2.0"
+gem 'fastimage'
 
 # Utilities
 gem 'active_link_to'
