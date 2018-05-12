@@ -16,8 +16,6 @@ class ProductsController < ApplicationController
   end
 
   def create
-    # uploads_attributes = params["uploads"].map { |file| {upload: upload} }
-    # @product = Product.new(product_params.merge(uploads_attributes: uploads_attributes))
     @product = Product.new(product_params)
     @product.user = current_user
 
@@ -31,6 +29,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product.uploads.build unless @product.uploads.any?
   end
 
   def update

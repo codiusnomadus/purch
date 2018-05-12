@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    @review.uploads.build unless @review.uploads.present?
     authorize @review
   end
 
@@ -56,6 +57,6 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-      params.require(:review).permit(:title, :body, :verdict)
+      params.require(:review).permit(:title, :body, :verdict, uploads_attributes: [:id, :upload, :featured] )
     end
 end
