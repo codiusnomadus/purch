@@ -1,26 +1,45 @@
 .container.main
   h1 All Reviews
-  .featured-review-index-page
-    .col-md-6.col-sm-12
-      | Image
-    .col-md-6.col-sm-12
-      | Excerpt
+  .featured-review-index-page.panel.panel-default
+    .panel-body
+      .col-md-6.col-sm-12
+        = image_tag @review.uploads.last.upload_url(:large)
+      .col-md-6.col-sm-12
+        h3 = link_to @review.title, @review
+        p
+          small
+            | Posted on
+            = @review.created_at.strftime('%-d %m, %Y at %l:%M%P')
+        p = @review.excerpt
+        p = link_to 'Read full review', review_path(@review)
+        p = link_to "http://example.com", class: "btn btn-compare btn-lg", target: "_blank" do
+          | View in Store
+          '
+          = fa_icon "shopping-basket"
 
   .row
     .reviews-main.index-page.col-md-9.col-sm-12.col-xs-12
       - @reviews.each do |item|
-        .col-md-12.col-sm-12.col-xs-12
+
+        .col-md-4.col-sm-12.col-xs-12
           .panel.panel-default
-            / .panel-heading.image-box
-            /   = link_to item do
-            /     - if item.image.present?
-            /       = image_tag item.image_url
-            /     - else
-            /       = image_tag "blog-img-2"
+            .panel-heading
+              - if item.uploads.any?
+                = link_to item do
+                  = image_tag item.uploads.last.upload_url(:large)
+
             .panel-body
               h3 = link_to item.title, item
-              p Read full review
-              p = link_to "View in Store", "http://example.com"
+              p
+                small
+                  | Posted on
+                  = item.created_at.strftime('%-d %m, %Y at %l:%M%P')
+              p = item.excerpt
+              p = link_to 'Read full review', review_path(item)
+              p.text-center = link_to "http://example.com", class: "btn btn-compare", target: "_blank" do
+                | View in Store
+                '
+                = fa_icon "shopping-basket"
 
     .col-md-3.col-sm-12.col-xs-12
       .categories-sidebar
@@ -48,3 +67,4 @@
               = image_tag "blog-img-2"
             .col-md-9
               h5 Sony XB950B1 Extra Bass Wireless
+

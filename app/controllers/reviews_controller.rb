@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all.order('created_at desc')
+    @review = @reviews.last
   end
 
   def show
@@ -57,6 +58,6 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-      params.require(:review).permit(:title, :body, :verdict, uploads_attributes: [:id, :upload, :featured] )
+      params.require(:review).permit(:title, :excerpt, :body, :verdict, uploads_attributes: [:id, :upload, :featured] )
     end
 end

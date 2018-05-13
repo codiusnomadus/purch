@@ -37,6 +37,7 @@ gem 'fastimage'
 # Utilities
 gem 'active_link_to'
 gem 'country_select'
+gem "wysiwyg-rails"
 
 # UI
 gem 'bootstrap-sass'

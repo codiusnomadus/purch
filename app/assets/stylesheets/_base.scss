@@ -13,13 +13,15 @@ p {
 a {
   transition: 0.5s;
   text-decoration: none !important;
-  font-family: $core_font;
+  // font-family: $core_font;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $core_font!important;
   font-weight: 900;
   margin: 0;
+  color: $dark_gray;
+  text-transform: uppercase;
 }
 
 h1 {
@@ -126,4 +128,57 @@ label.form-check-label.boolean {
 
 .index-page {
   margin-top: 2.8em;
+}
+
+ul.social-sidebar {
+  li {
+    margin-bottom: 1em;
+    a {
+      display: block;
+      width: 100%;
+      border-radius: 5px;
+      color: $white;
+      font-size: 1em;
+
+      &.social-fb {
+        background: #253e73!important;
+        color: white;
+      }
+
+      &.social-tw {
+        background: #23abff!important;
+        color: white;
+      }
+
+      &.social-fb, &.social-tw {
+        &:hover {
+          background: lighten(#333, 20%) !important;
+          transition: all 0.25s ease;
+
+          i {
+            background: #333 !important;
+          }
+        }
+      }
+
+      i {
+        border-radius: 5px 0 0 5px;
+
+        &:hover {
+          background: $dark;
+        }
+
+        &.span-fb {
+          padding: 1em 1.2em;
+          background: #325399!important;
+        }
+
+        &.span-tw {
+          padding: 1em;
+          background: #0094ef!important;
+        }
+      }
+
+    }
+  }
 }

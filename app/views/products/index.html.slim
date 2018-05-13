@@ -40,7 +40,7 @@
             .panel-heading.image-box
               = link_to item do
                 - if item.uploads.any?
-                  = image_tag item.uploads.last.image_url
+                  = image_tag item.uploads.last.upload_url(:original)
                 - else
                   = image_tag "blog-img-2"
             .panel-body

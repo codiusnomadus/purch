@@ -1,8 +1,9 @@
-.col-md-8.col-md-offset-2
+.col-md-10.col-md-offset-1
   .panel.panel-default
     .panel-body
       = simple_form_for @review, html: { multipart: true } do |f|
         = f.input :title
+        = f.input :excerpt, as: :text
         = f.input :body, as: :text
         = f.input :verdict, as: :text
         .panel.panel-default
@@ -18,3 +19,16 @@
               = render partial: 'uploads/form', locals: { f: builder, uploadable: @review }
 
         = f.button :submit, class: "btn btn-success"
+
+javascript:
+  $('#review_body').froalaEditor({
+    inlineMode: false,
+    heightMin: '600px',
+    dragInline: false,
+    pluginsEnabled: ['image', 'link', 'draggable', 'video', 'table', 'paragraphStyle', 'paragraphFormat', 'lists', 'quick_insert', 'quote', 'codeView'],
+    toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'indent', 'outdent', 'insertImage', 'insertLink', 'insertFile', 'insertVideo', 'undo', 'redo', 'fontSize', '|', 'paragraphFormat', '|', 'codeView', 'clearFormatting', 'selectAll', 'html', 'insertTable'],
+    theme: 'gray',
+    zIndex: 9999,
+  });
+
+

@@ -14,7 +14,7 @@ class UploadUploader < Shrine
 
     large = pipeline.resize_to_limit!(800, 800)
     medium = pipeline.resize_to_limit!(500, 500)
-    thumb = pipeline.resize_to_limit!(5, 5)
+    thumb = pipeline.resize_to_limit!(200, 200)
 
     original.close!
 
@@ -26,8 +26,6 @@ class UploadUploader < Shrine
     validate_mime_type_inclusion ['image/jpg', 'image/jpeg', 'image/png']
   end
 
-  plugin :default_url do |context|
-    Rails.root.join('app', 'assets', 'images', 'blog-img-2.jpg')
-  end
+  Attacher.default_url { Rails.root.join('app', 'assets', 'images', 'blog-img-2.jpg') }
 end
 

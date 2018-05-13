@@ -15,16 +15,18 @@
       .panel.panel-default
         .panel-body
           .featured-image
-            = image_tag @review.uploads.last.upload_url(:large)
+            - if @review.uploads.any?
+              = image_tag @review.uploads.last.upload_url(:large)
           h1 = @review.title
           p
             small
               | Posted on
               = @review.created_at.strftime('%-d %m, %Y at %l:%M%P')
           p = @review.verdict
-          p = @review.body
+          p = @review.body.html_safe
 
-  .col-md-3.col-sm-12
-    .panel.panel-default
-      .panel-body
-        h2 Other topics
+    .col-md-3.col-sm-12
+      = render 'shared/sidebar_social'
+      .panel.panel-default
+        .panel-body
+          h2 Other reviews
