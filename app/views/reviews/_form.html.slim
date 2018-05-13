@@ -1,29 +1,34 @@
 .col-md-10.col-md-offset-1
   .panel.panel-default
     .panel-body
-      = simple_form_for @product, html: { multipart: true } do |f|
-        = f.input :name
-        = f.input :description, as: :text
-        = f.input :price
+      = simple_form_for @review, html: { multipart: true } do |f|
+        = f.input :title
+        = f.input :excerpt, as: :text
+        = f.input :body, as: :text
+        = f.input :verdict, as: :text
         .panel.panel-default
           .panel-body
             = f.simple_fields_for :uploads do |builder|
-              - if @product.uploads.any?
-                - @product.uploads.each do |item|
-                  .row
-                    .col-md-2.col-sm-12
-                      = image_tag item.upload_url(:original)
-              = render partial: 'uploads/form', locals: { f: builder, uploadable: @product }
+              - if @review.uploads.any?
+                .row
+                  - @review.uploads.each do |item|
+                      .col-md-2.col-sm-12
+                        = image_tag item.upload_url(:small)
+              - else
+                = image_tag "blog-img-2"
+              = render partial: 'uploads/form', locals: { f: builder, uploadable: @review }
 
         = f.button :submit, class: "btn btn-success"
 
 javascript:
-  $('#product_description').froalaEditor({
+  $('#review_body').froalaEditor({
     inlineMode: false,
-    heightMin: '400px',
+    heightMin: '600px',
     dragInline: false,
     pluginsEnabled: ['image', 'link', 'draggable', 'video', 'table', 'paragraphStyle', 'paragraphFormat', 'lists', 'quick_insert', 'quote', 'codeView'],
     toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'indent', 'outdent', 'insertImage', 'insertLink', 'insertFile', 'insertVideo', 'undo', 'redo', 'fontSize', '|', 'paragraphFormat', '|', 'codeView', 'clearFormatting', 'selectAll', 'html', 'insertTable'],
     theme: 'gray',
     zIndex: 9999,
   });
+
+

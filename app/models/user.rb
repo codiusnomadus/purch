@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :products
+  has_many :reviews
 
   after_create :assign_default_role
 

@@ -39,8 +39,8 @@
           .panel.panel-default
             .panel-heading.image-box
               = link_to item do
-                - if item.image.present?
-                  = image_tag item.image_url
+                - if item.uploads.any?
+                  = image_tag item.uploads.last.upload_url(:original)
                 - else
                   = image_tag "blog-img-2"
             .panel-body

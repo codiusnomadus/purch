@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @product.uploads.build unless @product.uploads.any?
     authorize @product
   end
 
@@ -28,6 +29,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product.uploads.build unless @product.uploads.any?
   end
 
   def update
@@ -56,6 +58,6 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.require(:product).permit(:name, :description, :price, :image)
+      params.require(:product).permit(:name, :description, :price,  uploads_attributes: [:id, :upload, :featured] )
     end
 end
