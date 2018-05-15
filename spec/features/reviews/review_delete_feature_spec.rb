@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Product deletion" do
+feature "Review deletion" do
   let(:jon) { create(:user)}
   let!(:review) { create(:review) }
 
@@ -53,7 +53,7 @@ feature "Product deletion" do
     visit review_path(review)
 
     expect(page).to have_css(:h1, text: review.title)
-    expect(page).to_not have_css('li a', text: 'Delete product')
+    expect(page).to_not have_css('li a', text: 'Delete review')
   end
 
   it "does not allow subscriber users to delete reviews" do

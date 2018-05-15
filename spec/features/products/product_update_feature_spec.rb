@@ -43,7 +43,7 @@ feature "Product update" do
     sign_user_in(ned, 'editor')
 
     visit product_path(laptop)
-    expect(page).to_not have_css('li a', text: 'Edit product')
+    expect(page).to_not have_css('li a.btn-edit')
   end
 
   it "does not allow editors to leave blank fields" do
@@ -54,7 +54,7 @@ feature "Product update" do
     fill_in 'Name', with: 'Laptop'
     fill_in 'Description', with: ''
     fill_in 'Price', with: '10.99'
-    attach_file('Image', Rails.root.join('spec', 'factories', 'logo.png'))
+    attach_file('Upload', Rails.root.join('spec', 'factories', 'logo.png'))
     click_button 'Update Product'
 
     expect(page).to have_content('Product could not be updated.')

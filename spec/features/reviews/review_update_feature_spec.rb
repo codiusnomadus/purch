@@ -47,7 +47,7 @@ feature "Review update " do
     sign_user_in(ned, 'editor')
 
     visit review_path(review)
-    expect(page).to_not have_css('li a', text: 'Edit product')
+    expect(page).to_not have_css('li a', text: 'Edit review')
   end
 
   it "does not allow editors to leave blank fields" do
