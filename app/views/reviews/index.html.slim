@@ -1,21 +1,22 @@
 .container.main
   h1 All Reviews
-  .featured-review-index-page.panel.panel-default
-    .panel-body
-      .col-md-6.col-sm-12
-        = image_tag @review.uploads.last.upload_url(:large)
-      .col-md-6.col-sm-12
-        h3 = link_to @review.title, @review
-        p
-          small
-            | Posted on
-            = @review.created_at.strftime('%-d %m, %Y at %l:%M%P')
-        p = @review.excerpt
-        p = link_to 'Read full review', review_path(@review)
-        p = link_to "http://example.com", class: "btn btn-compare btn-lg", target: "_blank" do
-          | View in Store
-          '
-          = fa_icon "shopping-basket"
+  - if @review.present?
+    .featured-review-index-page.panel.panel-default
+      .panel-body
+        .col-md-6.col-sm-12
+            = image_tag @review.uploads.last.upload_url(:large)
+        .col-md-6.col-sm-12
+          h3 = link_to @review.title, @review
+          p
+            small
+              | Posted on
+              = @review.created_at.strftime('%-d %m, %Y at %l:%M%P')
+          p = @review.excerpt
+          p = link_to 'Read full review', review_path(@review)
+          p = link_to "http://example.com", class: "btn btn-compare btn-lg", target: "_blank" do
+            | View in Store
+            '
+            = fa_icon "shopping-basket"
 
   .row
     .reviews-main.index-page.col-md-9.col-sm-12.col-xs-12
