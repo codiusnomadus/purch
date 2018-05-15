@@ -1,4 +1,4 @@
-require 'rails_helper'
+require'rails_helper'
 
 feature "Product deletion" do
   let(:jon) { create(:user)}
@@ -15,11 +15,10 @@ feature "Product deletion" do
     visit product_path(laptop)
 
     expect(page).to have_css(:h1, text: laptop.name)
-    expect(page).to have_css('li a', text: 'Delete product')
+    expect(page).to have_css('li a.btn-delete')
 
-    click_link 'Delete product'
+    page.find(:css, 'li a.btn-delete').click
 
-    expect(page).to have_css(:h1, text: 'All products')
     expect(page).to have_content('Product has been deleted successfully.')
   end
 
@@ -29,13 +28,12 @@ feature "Product deletion" do
     visit product_path(laptop)
 
     expect(page).to have_css(:h1, text: laptop.name)
-    expect(page).to have_css('li a', text: 'Delete product')
+    expect(page).to have_css('li a.btn-delete')
 
-    click_link 'Delete product'
+    page.find(:css, 'li a.btn-delete').click
 
     expect(page).to have_content('Product has been deleted successfully.')
 
-    expect(page).to have_css(:h1, text: 'All products')
     expect(page).to have_content('Product has been deleted successfully.')
   end
 
@@ -46,14 +44,14 @@ feature "Product deletion" do
     visit product_path(laptop)
 
     expect(page).to have_css(:h1, text: laptop.name)
-    expect(page).to_not have_css('li a', text: 'Delete product')
+    expect(page).to_not have_css('li a.btn-delete')
   end
 
   it "does not allow non-users to delete products" do
     visit product_path(laptop)
 
     expect(page).to have_css(:h1, text: laptop.name)
-    expect(page).to_not have_css('li a', text: 'Delete product')
+    expect(page).to_not have_css('li a.btn-delete')
   end
 
   it "does not allow subscriber users to delete products" do
@@ -62,6 +60,6 @@ feature "Product deletion" do
     visit product_path(laptop)
 
     expect(page).to have_css(:h1, text: laptop.name)
-    expect(page).to_not have_css('li a', text: 'Delete product')
+    expect(page).to_not have_css('li a.btn-delete')
   end
 end

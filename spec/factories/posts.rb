@@ -1,9 +1,8 @@
 FactoryBot.define do
-  factory :review do
+  factory :post do
     title 'Samsung vs. Apple'
-    excerpt 'The last Samsung vs the lastest iphone'
     body 'The last Samsung vs the lastest iphone'
-    verdict 'Buy Samsung'
     user
+    category
   end
 end

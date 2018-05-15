@@ -9,6 +9,7 @@ feature "Review creation" do
     visit new_review_path
 
     fill_in 'Title', with: 'Samsung vs. Apple'
+    fill_in 'Excerpt', with: 'This laptop was designed in Korea.'
     fill_in 'Body', with: 'This laptop was designed in Korea.'
     fill_in 'Verdict', with: 'Buy'
     # attach_file('Image', Rails.root.join('spec', 'factories', 'logo.png'))
@@ -28,6 +29,7 @@ feature "Review creation" do
     visit new_review_path
 
     fill_in 'Title', with: 'Samsung vs. Apple'
+    fill_in 'Excerpt', with: 'This laptop was designed in Korea.'
     fill_in 'Body', with: 'This laptop was designed in Korea.'
     fill_in 'Verdict', with: 'Buy'
     # attach_file('Image', Rails.root.join('spec', 'factories', 'logo.png'))

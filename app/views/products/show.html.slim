@@ -3,11 +3,11 @@
     - if user_signed_in? && (current_user.has_role?(:admin) || current_user.has_role?(:editor))
       ul.list-unstyled.list-inline.pull-right.admin-links
         - if policy(@product).edit?
-          li = link_to edit_product_path(@product), class: "btn btn-default btn-xs" do
+          li = link_to edit_product_path(@product), class: "btn btn-default btn-xs btn-edit" do
             = fa_icon "pencil"
 
         - if policy(@product).destroy?
-          li = link_to @product, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs" do
+          li = link_to @product, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs btn-delete" do
             = fa_icon "trash"
 
   .product-single.show-page

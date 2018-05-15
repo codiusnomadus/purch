@@ -11,7 +11,7 @@ feature "Product creation" do
     fill_in 'Name', with: 'Laptop'
     fill_in 'Description', with: 'This laptop was designed in Korea.'
     fill_in 'Price', with: '10.99'
-    attach_file('Image', Rails.root.join('spec', 'factories', 'logo.png'))
+    attach_file('Upload', Rails.root.join('spec', 'factories', 'logo.png'))
     click_button 'Create Product'
 
     expect(page).to have_content('Product has been created successfully.')
@@ -29,7 +29,7 @@ feature "Product creation" do
     fill_in 'Name', with: 'Laptop'
     fill_in 'Description', with: 'This laptop was designed in Korea.'
     fill_in 'Price', with: '10.99'
-    attach_file('Image', Rails.root.join('spec', 'factories', 'logo.png'))
+    attach_file('Upload', Rails.root.join('spec', 'factories', 'logo.png'))
     click_button 'Create Product'
 
     expect(page).to have_content('Product has been created successfully.')
@@ -47,7 +47,7 @@ feature "Product creation" do
     fill_in 'Name', with: 'Laptop'
     fill_in 'Description', with: ''
     fill_in 'Price', with: '10.99'
-    attach_file('Image', Rails.root.join('spec', 'factories', 'logo.png'))
+    attach_file('Upload', Rails.root.join('spec', 'factories', 'logo.png'))
     click_button 'Create Product'
 
     expect(page).to have_content('Product could not be created.')

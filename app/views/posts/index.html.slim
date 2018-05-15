@@ -1,18 +1,19 @@
 .container.main
-  h1 All Reviews
-  - if @review.present?
-    .featured-review-index-page.panel.panel-default
+  h1 Blog
+  - if @post.present?
+    .featured-post-index-page.panel.panel-default
       .panel-body
         .col-md-6.col-sm-12
-            = image_tag @review.uploads.last.upload_url(:large)
+          - if @post.uploads.any?
+            = image_tag @post.uploads.last.upload_url(:large)
         .col-md-6.col-sm-12
-          h3 = link_to @review.title, @review
+          h3 = link_to @post.title, @post
           p
             small
               | Posted on
-              = @review.created_at.strftime('%-d %m, %Y at %l:%M%P')
-          p = @review.excerpt
-          p = link_to 'Read full review', review_path(@review)
+              = @post.created_at.strftime('%-d %m, %Y at %l:%M%P')
+          / p = @post.excerpt
+          p = link_to 'Read full post', post_path(@post)
           p = link_to "http://example.com", class: "btn btn-compare btn-lg", target: "_blank" do
             | View in Store
             '
@@ -20,7 +21,7 @@
 
   .row
     .reviews-main.index-page.col-md-9.col-sm-12.col-xs-12
-      - @reviews.each do |item|
+      - @posts.each do |item|
 
         .col-md-4.col-sm-12.col-xs-12
           .panel.panel-default
@@ -35,8 +36,8 @@
                 small
                   | Posted on
                   = item.created_at.strftime('%-d %m, %Y at %l:%M%P')
-              p = item.excerpt
-              p = link_to 'Read full review', review_path(item)
+              / p = item.excerpt
+              p = link_to 'Read full post', post_path(item)
               p.text-center = link_to "http://example.com", class: "btn btn-compare", target: "_blank" do
                 | View in Store
                 '
@@ -54,8 +55,8 @@
               li = link_to 'Monitors'
               li = link_to 'Headphones'
 
-      .reviews-sidebar
-        h4.section-heading Top reviews
+      .posts-sidebar
+        h4.section-heading Top posts
         .panel.panel-default
           .panel-body
             .col-md-3
