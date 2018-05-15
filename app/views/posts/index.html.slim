@@ -1,0 +1,72 @@
+.container.main
+  h1 Blog
+  - if @post.present?
+    .featured-post-index-page.panel.panel-default
+      .panel-body
+        .col-md-6.col-sm-12
+          - if @post.uploads.any?
+            = image_tag @post.uploads.last.upload_url(:large)
+        .col-md-6.col-sm-12
+          h3 = link_to @post.title, @post
+          p
+            small
+              | Posted on
+              = @post.created_at.strftime('%-d %m, %Y at %l:%M%P')
+          / p = @post.excerpt
+          p = link_to 'Read full post', post_path(@post)
+          p = link_to "http://example.com", class: "btn btn-compare btn-lg", target: "_blank" do
+            | View in Store
+            '
+            = fa_icon "shopping-basket"
+
+  .row
+    .reviews-main.index-page.col-md-9.col-sm-12.col-xs-12
+      - @posts.each do |item|
+
+        .col-md-4.col-sm-12.col-xs-12
+          .panel.panel-default
+            .panel-heading
+              - if item.uploads.any?
+                = link_to item do
+                  = image_tag item.uploads.last.upload_url(:large)
+
+            .panel-body
+              h3 = link_to item.title, item
+              p
+                small
+                  | Posted on
+                  = item.created_at.strftime('%-d %m, %Y at %l:%M%P')
+              / p = item.excerpt
+              p = link_to 'Read full post', post_path(item)
+              p.text-center = link_to "http://example.com", class: "btn btn-compare", target: "_blank" do
+                | View in Store
+                '
+                = fa_icon "shopping-basket"
+
+    .col-md-3.col-sm-12.col-xs-12
+      .categories-sidebar
+        h4.section-heading Categories
+        .panel.panel-default
+          .panel-body
+            ul.category-list.list-items
+              li = link_to 'Laptops'
+              li = link_to 'Tablets'
+              li = link_to 'Smartphones'
+              li = link_to 'Monitors'
+              li = link_to 'Headphones'
+
+      .posts-sidebar
+        h4.section-heading Top posts
+        .panel.panel-default
+          .panel-body
+            .col-md-3
+              = image_tag 'blog-img-2'
+            .col-md-9
+              h5 Sony XB950B1 Extra Bass Wireless
+        .panel.panel-default
+          .panel-body
+            .col-md-3
+              = image_tag "blog-img-2"
+            .col-md-9
+              h5 Sony XB950B1 Extra Bass Wireless
+
