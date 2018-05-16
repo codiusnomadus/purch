@@ -10,16 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180513132625) do
+ActiveRecord::Schema.define(version: 20180516125107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "brands", primary_key: "code", id: :string, force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "active",     default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "deals", force: :cascade do |t|
+    t.string   "title"
+    t.string   "brand_code"
+    t.string   "price"
+    t.string   "discount_code"
+    t.text     "savings"
+    t.string   "link"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -29,6 +48,7 @@ ActiveRecord::Schema.define(version: 20180513132625) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.text     "excerpt"
     t.index ["category_id"], name: "index_core.posts_on_category_id", using: :btree
   end
 
@@ -39,6 +59,7 @@ ActiveRecord::Schema.define(version: 20180513132625) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.string   "brand_code"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -49,6 +70,7 @@ ActiveRecord::Schema.define(version: 20180513132625) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text     "excerpt"
+    t.string   "brand_code"
     t.index ["user_id"], name: "index_core.reviews_on_user_id", using: :btree
   end
 
