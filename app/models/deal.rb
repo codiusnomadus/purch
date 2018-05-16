@@ -1,6 +1,5 @@
-class Product < ApplicationRecord
-  self.table_name = 'core.products'
-  resourcify
+class Deal < ApplicationRecord
+  self.table_name = 'core.deals'
 
   belongs_to :user, dependent: :destroy
   belongs_to :brand,
@@ -10,5 +9,5 @@ class Product < ApplicationRecord
   has_many :uploads, as: :uploadable, dependent: :destroy
   accepts_nested_attributes_for :uploads, allow_destroy: true
 
-  validates :name, :brand, :description, presence: true
+  validates :title, :brand, :user, presence: true
 end

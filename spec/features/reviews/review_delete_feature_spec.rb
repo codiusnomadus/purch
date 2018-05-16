@@ -19,7 +19,7 @@ feature "Review deletion" do
 
     page.find(:css, 'li a.btn-delete').click
 
-    expect(page).to have_css(:h1, text: 'All Reviews')
+    expect(page).to have_css(:h1, text: 'Reviews')
     expect(page).to have_content('Review has been deleted successfully.')
   end
 
@@ -35,7 +35,7 @@ feature "Review deletion" do
 
     expect(page).to have_content('Review has been deleted successfully.')
 
-    expect(page).to have_css(:h1, text: 'All Reviews')
+    expect(page).to have_css(:h1, text: 'Reviews')
     expect(page).to have_content('Review has been deleted successfully.')
   end
 

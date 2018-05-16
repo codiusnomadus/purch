@@ -12,21 +12,41 @@
 
   .review-single.show-page
     .col-md-9.col-sm-12
-      .panel.panel-default
-        .panel-body
-          .featured-image
-            - if @review.uploads.any?
-              = image_tag @review.uploads.last.upload_url(:large)
-          h1 = @review.title
-          p
-            small
-              | Posted on
-              = @review.created_at.strftime('%-d %m, %Y at %l:%M%P')
-          p = @review.verdict
-          p = @review.body.html_safe
+      .featured-image
+        - if @review.uploads.any?
+          = image_tag @review.uploads.last.upload_url(:large)
+      h1 = @review.title
+      p
+        small
+          | Posted on
+          '
+          = @review.created_at.strftime('%-d %b, %Y at %l:%M%P')
+      p = @review.verdict
+      p = @review.body.html_safe
+
+      .comments
+        #disqus_thread
 
     .col-md-3.col-sm-12
-      = render 'shared/sidebar_social'
-      .panel.panel-default
-        .panel-body
-          h2 Other reviews
+      .sidebar-section
+        = render 'shared/sidebar_social'
+      .other-reviews.sidebar-section
+        h4 Other reviews
+
+
+javascript:
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://purchasebuff.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+
+noscript
+  | Please enable JavaScript to view the
+  '
+  a[href="https://disqus.com/?ref_noscript"]
+  '
+  | comments powered by Disqus.
+
+

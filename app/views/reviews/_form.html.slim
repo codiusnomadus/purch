@@ -3,6 +3,7 @@
     .panel-body
       = simple_form_for @review, html: { multipart: true } do |f|
         = f.input :title
+        = f.association :brand
         = f.input :excerpt, as: :text
         = f.input :body, as: :text
         = f.input :verdict, as: :text

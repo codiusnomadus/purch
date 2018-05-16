@@ -12,23 +12,39 @@
 
   .post-single.show-page
     .col-md-9.col-sm-12
-      .panel.panel-default
-        .panel-body
-          .featured-image
-            - if @post.uploads.any?
-              = image_tag @post.uploads.last.upload_url(:large)
-          h1 = @post.title
-          p
-            = link_to "#" do
-              span.label.label-default = @post.category.name
-          p
-            small
-              | Posted on
-              = @post.created_at.strftime('%-d %m, %Y at %l:%M%P')
-          p = @post.body.html_safe
+      .post-section
+        .featured-image
+          - if @post.uploads.any?
+            = image_tag @post.uploads.last.upload_url(:large)
+        h1 = @post.title
+        p
+          = link_to "#" do
+            span.label.label-default = @post.category.name
+        p
+          small
+            | Posted on
+            '
+            = @post.created_at.strftime('%-d %m, %Y at %l:%M%P')
+        p = @post.body.html_safe
+
+      .comments
+        #disqus_thread
 
     .col-md-3.col-sm-12
       = render 'shared/sidebar_social'
-      .panel.panel-default
-        .panel-body
-          h2 Other posts
+      h2 Other posts
+
+javascript:
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://purchasebuff.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+
+noscript
+  | Please enable JavaScript to view the
+  '
+  a[href="https://disqus.com/?ref_noscript"]
+  '
+  | comments powered by Disqus.

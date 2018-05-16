@@ -3,7 +3,7 @@
     .panel-body
       = simple_form_for @post, html: { multipart: true } do |f|
         = f.input :title
-        / = f.input :excerpt, as: :text
+        = f.input :excerpt, as: :text
         = f.input :body, as: :text
         = f.association :category, prompt: 'Select category'
         .panel.panel-default

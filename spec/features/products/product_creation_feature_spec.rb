@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature "Product creation" do
   let(:jon) { create(:user)}
+  let!(:brand) { create(:brand) }
 
   it "allows admin users to create products" do
     sign_user_in(jon)
@@ -9,6 +10,7 @@ feature "Product creation" do
     visit new_product_path
 
     fill_in 'Name', with: 'Laptop'
+    select brand.name, from: 'Brand'
     fill_in 'Description', with: 'This laptop was designed in Korea.'
     fill_in 'Price', with: '10.99'
     attach_file('Upload', Rails.root.join('spec', 'factories', 'logo.png'))
@@ -27,6 +29,7 @@ feature "Product creation" do
     visit new_product_path
 
     fill_in 'Name', with: 'Laptop'
+    select brand.name, from: 'Brand'
     fill_in 'Description', with: 'This laptop was designed in Korea.'
     fill_in 'Price', with: '10.99'
     attach_file('Upload', Rails.root.join('spec', 'factories', 'logo.png'))
@@ -45,6 +48,7 @@ feature "Product creation" do
     visit new_product_path
 
     fill_in 'Name', with: 'Laptop'
+    select brand.name, from: 'Brand'
     fill_in 'Description', with: ''
     fill_in 'Price', with: '10.99'
     attach_file('Upload', Rails.root.join('spec', 'factories', 'logo.png'))

@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature "Review creation" do
   let(:jon) { create(:user)}
+  let!(:brand) { create(:brand) }
 
   it "allows admin users to create reviews" do
     sign_user_in(jon)
@@ -12,6 +13,7 @@ feature "Review creation" do
     fill_in 'Excerpt', with: 'This laptop was designed in Korea.'
     fill_in 'Body', with: 'This laptop was designed in Korea.'
     fill_in 'Verdict', with: 'Buy'
+    select brand.name, from: 'Brand'
     # attach_file('Image', Rails.root.join('spec', 'factories', 'logo.png'))
     click_button 'Create Review'
 
@@ -32,6 +34,7 @@ feature "Review creation" do
     fill_in 'Excerpt', with: 'This laptop was designed in Korea.'
     fill_in 'Body', with: 'This laptop was designed in Korea.'
     fill_in 'Verdict', with: 'Buy'
+    select brand.name, from: 'Brand'
     # attach_file('Image', Rails.root.join('spec', 'factories', 'logo.png'))
     click_button 'Create Review'
 
@@ -50,6 +53,7 @@ feature "Review creation" do
     fill_in 'Title', with: 'Samsung vs. Apple'
     fill_in 'Body', with: ''
     fill_in 'Verdict', with: 'Buy'
+    select brand.name, from: 'Brand'
     # attach_file('Image', Rails.root.join('spec', 'factories', 'logo.png'))
     click_button 'Create Review'
 

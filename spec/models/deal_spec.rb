@@ -1,18 +1,17 @@
 require 'rails_helper'
 
-RSpec.describe Product, type: :model do
+RSpec.describe Deal, type: :model do
   before do
-    create(:user)
-    create(:product)
+    create(:brand)
   end
 
   describe "associations" do
     it { should belong_to(:user).dependent(:destroy) }
+    it { should belong_to(:brand) }
   end
 
   describe "validations" do
-    it { should validate_presence_of(:name) }
-    it { should validate_presence_of(:description) }
+    it { should validate_presence_of(:title) }
     it { should validate_presence_of(:brand) }
   end
 end

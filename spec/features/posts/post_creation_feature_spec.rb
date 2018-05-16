@@ -11,6 +11,7 @@ feature "Post creation" do
     visit new_post_path
 
     fill_in 'Title', with: 'Samsung vs. Apple'
+    fill_in 'Excerpt', with: 'This laptop was designed here.'
     fill_in 'Body', with: 'This laptop was designed in Korea.'
     select category.name, from: 'Category'
     # fill_in 'Verdict', with: 'Buy'
@@ -30,6 +31,7 @@ feature "Post creation" do
     visit new_post_path
 
     fill_in 'Title', with: 'Samsung vs. Apple'
+    fill_in 'Excerpt', with: 'This laptop was designed in Korea.'
     fill_in 'Body', with: 'This laptop was designed in Korea.'
     select category.name, from: 'Category'
     click_button 'Create Post'

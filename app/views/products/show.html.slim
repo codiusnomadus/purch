@@ -11,26 +11,25 @@
             = fa_icon "trash"
 
   .product-single.show-page
-    .panel.panel-default
-      .panel-body
-        .row
-          .col-md-6.col-sm-12
-            - if @product.uploads.where(featured: true).any?
-              = image_tag @product.uploads.where(featured: true).last.upload_url(:original)
-          .col-md-6.col-sm-12
-            h1 = @product.name
-            p
-              small
-              | US$
-              = @product.price
-              |.00
-            p
-              = fa_icon "star"
-              = fa_icon "star"
-              = fa_icon "star"
-              = fa_icon "star"
-              = fa_icon "star"
-
+    .row
+      .col-md-6.col-sm-12
+        - if @product.uploads.where(featured: true).any?
+          = image_tag @product.uploads.where(featured: true).last.upload_url(:original)
+        - else
+          = image_tag 'title-bg'
+      .col-md-6.col-sm-12
+        h1 = @product.name
+        p
+          small
+          | US$
+          = @product.price
+          |.00
+        p
+          = fa_icon "star"
+          = fa_icon "star"
+          = fa_icon "star"
+          = fa_icon "star"
+          = fa_icon "star"
 
     .panel.panel-default
       .panel-body

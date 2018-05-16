@@ -13,4 +13,6 @@ RSpec.describe Review, type: :model do
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:body) }
   it { should validate_presence_of(:verdict) }
+  it { should validate_presence_of(:excerpt) }
+  it { should validate_presence_of(:brand) }
 end

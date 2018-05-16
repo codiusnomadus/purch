@@ -1,0 +1,35 @@
+.container.main
+  .head-section
+    - if user_signed_in? && (current_user.has_role?(:admin) || current_user.has_role?(:editor))
+      ul.list-unstyled.list-inline.pull-right.admin-links
+        - if policy(@deal).edit?
+          li = link_to edit_deal_path(@deal), class: "btn btn-default btn-xs btn-edit" do
+            = fa_icon "pencil"
+
+        - if policy(@deal).destroy?
+          li = link_to @deal, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs btn-delete" do
+            = fa_icon "trash"
+
+  .deal-single.show-page
+    .col-md-9.col-sm-12
+      .panel.panel-default
+        .panel-body
+          .featured-image
+            - if @deal.uploads.any?
+              = image_tag @deal.uploads.last.upload_url(:large)
+          h1 = @deal.title
+          p
+            small
+              | Posted on
+              = @deal.created_at.strftime('%-d %m, %Y at %l:%M%P')
+          p = @deal.price
+          p = link_to "Get this deal", @deal.link
+          p = @deal.brand
+          p = @deal.discount_code
+          p = @deal.savings.html_safe
+
+    .col-md-3.col-sm-12
+      = render 'shared/sidebar_social'
+      .panel.panel-default
+        .panel-body
+          h2 Other deals
