@@ -10,5 +10,5 @@ class Product < ApplicationRecord
   has_many :uploads, as: :uploadable, dependent: :destroy
   accepts_nested_attributes_for :uploads, allow_destroy: true
 
-  validates :name, :description, presence: true
+  validates :name, :brand, :description, presence: true
 end
