@@ -3,6 +3,7 @@
     .panel-body
       = simple_form_for @product, html: { multipart: true } do |f|
         = f.input :name
+        = f.association :brand
         = f.input :description, as: :text
         = f.input :price
         .panel.panel-default
