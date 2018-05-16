@@ -4,6 +4,7 @@ FactoryBot.define do
     excerpt 'The last Samsung vs the lastest iphone'
     body 'The last Samsung vs the lastest iphone'
     verdict 'Buy Samsung'
+    brand
     user
   end
 end
