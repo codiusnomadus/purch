@@ -1,0 +1,20 @@
+@import 'variables';
+
+.reviews-main {
+  .col-md-12.col-sm-12.review-item {
+    .panel {
+      border-bottom: 1px solid $light_gray!important;
+    }
+  }
+
+  .col-md-12.col-sm-12.review-item:last-child {
+    .panel {
+      border-bottom: 0!important;
+    }
+  }
+}
+
+.featured-review-index-page {
+  margin-top: 3em!important;
+}
+

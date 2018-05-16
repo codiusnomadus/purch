@@ -8,8 +8,12 @@ $light                : #f8f7f4;
 $white                : #fff;
 $dark                 : #333;
 $dark_gray            : #3c4750;
+// $dark_gray            : #163c3f;
+$light_gray           : lighten(#666, 25%);
+$middle_gray          : #6b6868;
 
-$green_core: #07c748;
+// $green_core: #07c748;
+$green_core: #4cb8c4;
 // $green_core: #3BBCB0;
 
 /**
@@ -21,6 +25,7 @@ $green_core: #07c748;
 @import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Capriola');
 
-
-$core_font: 'Roboto Condensed', sans-serif;
+$core_font: 'Capriola', sans-serif;
+$head_font: 'Roboto Condensed', sans-serif;
