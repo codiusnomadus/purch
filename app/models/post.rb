@@ -7,5 +7,5 @@ class Post < ApplicationRecord
   has_many :uploads, as: :uploadable, dependent: :destroy
   accepts_nested_attributes_for :uploads, allow_destroy: true
 
-  validates :title, :body, presence: true
+  validates :title, :excerpt, :body, presence: true
 end
